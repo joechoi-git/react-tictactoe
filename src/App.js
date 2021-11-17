@@ -139,7 +139,7 @@ class Game extends React.Component {
       const cell = calulateCell(step.value);
       // console.log(step, index, cell);
       const desc = (index > 0) ?
-        `Go to move # ${index} (Column:${cell[0]}, Row:${cell[1]})` :
+        `Go to move # ${index} (Column:${cell[0]+1}, Row:${cell[1]+1})` :
         'Go to game start';
       return (
         <li key={index}>
