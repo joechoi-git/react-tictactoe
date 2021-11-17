@@ -113,6 +113,21 @@ class Game extends React.Component {
     });
   }
 
+  handleReset() {
+    this.setState({
+      history: [
+        {
+          squares: Array(9).fill(null),
+          value: null,
+        }
+      ],
+      stepNumber: 0,
+      xIsNext: true,
+      lastMove: null,
+      isAscendingSort: true,
+    });
+  }
+
   render() {
     const history = this.state.history;
     const stepNumber = this.state.stepNumber;
@@ -168,6 +183,9 @@ class Game extends React.Component {
               ):(
                 <>Sort Ascending</>
               )}
+            </button>
+            <button onClick={() => this.handleReset()}>
+              Start a New Game
             </button>
           </div>
           <ol reversed={!this.state.isAscendingSort}>
