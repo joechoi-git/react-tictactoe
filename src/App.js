@@ -21,17 +21,17 @@ class Board extends React.Component {
     );
   }
 
-  render() {
-    const columns = [0, 1, 2];
-    const rows = [0, 1, 2];
+  columns = [0, 1, 2];
+  rows = [0, 1, 2];
 
+  render() {
     return (
       <div>
-        {rows.map((row) => {
+        {this.rows.map((row) => {
           const rowKey = "row" + row;
           return (
             <div className="board-row" key={rowKey}>
-              {columns.map((column) => {
+              {this.columns.map((column) => {
                 const i = (row * 3) + column;
                 return (
                   this.renderSquare(i)
@@ -170,7 +170,9 @@ class Game extends React.Component {
               )}
             </button>
           </div>
-          <ol reversed={!this.state.isAscendingSort}>{moves}</ol>
+          <ol reversed={!this.state.isAscendingSort}>
+            {(this.state.isAscendingSort) ? moves : moves.reverse()}
+          </ol>
         </div>
       </div>
     );
